@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='general.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='game.js') }}" type="module"></script>
+    <title>SHOOT!</title>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="main-nav">
+            <ul class="main-nav-list">
+                <li><a href="{{ url_for('index') }}">Home Page</a></li>
+                </br>
+                <li><a href="{{ url_for('game') }}">Play</a></li>
+                </br>
+                <li><a href="{{ url_for('scoreboard') }}">Scoreboard</a></li>
+                </br>
+                {% if session == 1 %}
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+                </br>
+                {% endif %}
+                {% if session == 1 %}
+                <li><a href="{{ url_for('register') }}">Register</a></li>
+                </br>
+                {% endif %}
+                {% if session == 2 %}
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                </br>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="score">
+            <p id="killCount">Enemies Slain: 0</p>
+            <p id="playerHealth">Player Health: 0</p>
+            <p id="buildingHealth">Building Health: 0</p>
+            <p id="bulletDamage">Bullet Damage: 0</p>
+            <p id="bulletSpeed">Bullet Speed: 0</p>
+            <p id="bulletFirerate">Bullet Firerate: 0</p>
+            <p id="playerSpeed">Player Speed: 0</p>
+            <p>{{ username }}</p>
+        </section>
+        <section id="game">
+            <canvas width="800" height="608">
+            </canvas>
+        </section>
+    </main>
+</body>
+
+</html>

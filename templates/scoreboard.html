@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block main_content %}
+<table>
+{% for item in scores %}
+    <tr>
+        <td>{{ item["username"] }}</td>
+        <td>{{ item["score"] }}</td>
+    <tr>
+{% endfor %}
+</table>
+{% endblock %}
